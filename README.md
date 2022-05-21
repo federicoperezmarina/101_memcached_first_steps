@@ -1,20 +1,31 @@
 # 101_memcached_first_steps
+In this repository we want to learn how to use memcache. The programming language used will be python.
 
+## Table of Contents
+* [Create and run memcached image](#create-and-run-memcached-image)
+* [Memcached examples](#memcached-examples)
+
+## Create and run memcached image
+First of all we have to build the Dockerfile with then next command:
 ```sh
 docker build -t memcached .
 ```
 
+Now we have created the docker image alpine-linux with memcache and python. Run the command to run the container.
 ```sh
 docker run --name my-memcache -d memcached
 ```
 
+In this step we are going inside the container in order to review if the memcache server is up.
 ```sh
 docker exec -it my-memcache /bin/ash
 ```
 
+To review if the memcached is up run the next command:
 ```sh
 echo "stats settings" | nc localhost 11211
 
+Output:
 STAT maxbytes 67108864
 STAT maxconns 1024
 STAT tcpport 11211
@@ -91,4 +102,57 @@ STAT ssl_min_version tlsv1.2
 STAT num_napi_ids (null)
 STAT memory_file (null)
 END
+```
+
+## Memcached examples
+In this step we are able to start using memcache. It is very easy to use, memcache is a cache service. We are going to do show some examples in order to know how it work and how it performs.
+
+### Example 1
+The first example explains how to set & read a cache
+```sh
+cd /tmp
+python3 example_1_memcache.py
+
+output:
+b'value of the key'
+```
+
+### Example 2
+The second example explains how to set the cache & measure the time that it takes
+```sh
+cd /tmp
+python3 example_2_memcache.py
+
+output:
+WriteFunction took 0.009439468383789062 seconds to complete its execution.
+WriteFunction took 0.0534367561340332 seconds to complete its execution.
+WriteFunction took 0.3517634868621826 seconds to complete its execution.
+WriteFunction took 3.407031774520874 seconds to complete its execution.
+```
+
+### Example 3
+The third example explains how to set & read the cache & measure the time that it takes
+```sh
+cd /tmp
+python3 example_3_memcache.py
+
+output:
+WriteFunction took 0.0057680606842041016 seconds to complete its execution.
+ReadFunction took 0.02287006378173828 seconds to complete its execution.
+WriteFunction took 0.025272607803344727 seconds to complete its execution.
+ReadFunction took 0.27745509147644043 seconds to complete its execution.
+WriteFunction took 0.2707219123840332 seconds to complete its execution.
+ReadFunction took 2.3406431674957275 seconds to complete its execution.
+WriteFunction took 2.7416086196899414 seconds to complete its execution.
+ReadFunction took 11.155537843704224 seconds to complete its execution.
+```
+
+### Example 4
+The fourth example explains how to create a cache strategy
+```sh
+cd /tmp
+python3 example_4_memcache.py
+
+output:
+42
 ```
