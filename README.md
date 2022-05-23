@@ -156,3 +156,24 @@ python3 example_4_memcache.py
 output:
 42
 ```
+
+### Example 5
+The fifth example explains how to set / read & delete the cache measuring the time that it takes
+```sh
+cd /tmp
+python3 example_5_memcache.py
+
+output:
+WriteFunction took 0.006361961364746094 seconds to complete its execution.
+ReadFunction took 0.02419590950012207 seconds to complete its execution.
+DeleteFunction took 0.0018792152404785156 seconds to complete its execution.
+WriteFunction took 0.026496171951293945 seconds to complete its execution.
+ReadFunction took 0.2660956382751465 seconds to complete its execution.
+DeleteFunction took 0.017699241638183594 seconds to complete its execution.
+WriteFunction took 0.2690434455871582 seconds to complete its execution.
+ReadFunction took 2.1332435607910156 seconds to complete its execution.
+DeleteFunction took 0.19340968132019043 seconds to complete its execution.
+WriteFunction took 3.488253116607666 seconds to complete its execution.
+ReadFunction took 22.048431873321533 seconds to complete its execution.
+DeleteFunction took 2.0235681533813477 seconds to complete its execution.
+```
