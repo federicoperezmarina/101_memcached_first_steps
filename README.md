@@ -120,8 +120,9 @@ client.set('key', 'value of the key')
 
 # Retrieve previously set data again:
 print(client.get('key'))
+```
 
-
+How to run the example:
 ```sh
 cd /tmp
 python3 example_1_memcache.py
