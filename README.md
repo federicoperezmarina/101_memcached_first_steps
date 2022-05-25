@@ -109,6 +109,19 @@ In this step we are able to start using memcache. It is very easy to use, memcac
 
 ### Example 1
 The first example explains how to set & read a cache
+```python
+from pymemcache.client import base
+
+# Don't forget to run `memcached' before running this next line:
+client = base.Client(('localhost', 11211))
+
+# Once the client is instantiated, you can access the cache:
+client.set('key', 'value of the key')
+
+# Retrieve previously set data again:
+print(client.get('key'))
+
+
 ```sh
 cd /tmp
 python3 example_1_memcache.py
